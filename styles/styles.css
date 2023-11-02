@@ -1,0 +1,2464 @@
+body {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  padding-top: 0 !important;
+  /* overflow: hidden; */
+  height: 100%;
+  padding-left: 0px;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column; /* Arrange children in a column */
+  height: 100vh; /* Use the full viewport height */
+}
+
+.header-container {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-criteria {
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  justify-content: center;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  min-height: 55px;
+  padding: 0px 12px;
+  background-color: #ffffff;
+}
+
+.search-container {
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 1007px) {
+  body:not(.mobile-web) {
+    /* overflow: hidden; */
+    height: 100%;
+  }
+}
+@media screen and (min-height: 400px) {
+  body.map-visible {
+    /* overflow: hidden; */
+    height: 100%;
+  }
+}
+
+/* Style for the navigation bar */
+.navbar {
+  color: rgb(42, 42, 51);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+@media screen and (min-width: 1007px) {
+  body:not(.mobile-web) #wrapper,
+  body:not(.mobile-web) #search-page-react-content,
+  body:not(.mobile-web) .map-and-listings-container {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+@media screen and (min-height: 400px) {
+  body.map-visible #wrapper,
+  body.map-visible #search-page-react-content,
+  body.map-visible .map-and-listings-container {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Style for the navigation bar items */
+.navbar a {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  z-index: 2;
+  position: static;
+}
+
+.navbar span {
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 15px;
+  color: rgb(42, 42, 51);
+}
+
+.navbar span:hover {
+  color: rgb(0, 106, 255);
+}
+
+/* Style for the image separator */
+.navbar img {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  cursor: pointer;
+  color: rgb(0, 106, 255);
+  aspect-ratio: auto 120 / 25;
+  box-sizing: border-box;
+  margin: auto;
+  width: 160px;
+  height: 35px;
+  display: block;
+}
+
+.outermost-nav {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  list-style: none;
+  font-family: inherit;
+  line-height: 80px;
+  box-sizing: border-box;
+}
+
+.outermost-container {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  list-style: none;
+  font-family: inherit;
+  line-height: 80px;
+  box-sizing: border-box;
+  flex: 1 0 auto;
+  border-top: 1px solid rgb(216, 216, 216);
+  left: 0px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  top: 80px;
+  margin-top: -1px;
+  background-color: white;
+  transition: opacity 0s ease 0.5s, visibility 0s ease;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+/* Style for the dropdown items container */
+.dropdown-content {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  list-style: none;
+  font-family: inherit;
+  line-height: 80px;
+  visibility: hidden;
+  box-sizing: border-box;
+  background: rgb(251, 251, 251);
+  display: flex;
+  margin: auto;
+  padding: 0px 24px;
+  width: 100%;
+  background-color: white;
+  max-width: 100%;
+}
+
+.col-list {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  font-family: inherit;
+  line-height: 80px;
+  visibility: hidden;
+  box-sizing: border-box;
+  margin: 0px;
+  list-style: none;
+  margin-inline: 0px;
+  padding-inline: 0px;
+  margin-block: 0px;
+  padding: 0px;
+  list-style-type: none;
+  list-style-position: outside;
+  padding-bottom: 0px;
+  display: flex;
+}
+
+.col-list-items {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  font-family: inherit;
+  line-height: 80px;
+  visibility: hidden;
+  list-style: none;
+  list-style-type: none;
+  list-style-position: outside;
+  box-sizing: border-box;
+  margin: 25px 28px 24px 0px;
+  padding-top: 0px;
+  margin-left: 0px;
+  border-left: none;
+  padding-left: 0px;
+}
+
+.nav-sub-category {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit;
+  visibility: hidden;
+  list-style: none;
+  list-style-type: none;
+  list-style-position: outside;
+  box-sizing: border-box;
+  flex: 1 0 100%;
+  font-size: 14px;
+  color: rgb(42, 42, 51);
+  margin: 0px;
+  line-height: 40px;
+}
+
+.list-of-links {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  font-family: inherit;
+  line-height: 80px;
+  visibility: hidden;
+  box-sizing: border-box;
+  list-style: none;
+  margin-inline: 0px;
+  padding-inline: 0px;
+  margin-block: 0px;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  list-style-position: outside;
+  display: flex;
+}
+
+.column-sublist {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  font-family: inherit;
+  line-height: 80px;
+  visibility: hidden;
+  list-style: none;
+  list-style-type: none;
+  list-style-position: outside;
+  box-sizing: border-box;
+  margin-left: 0px;
+}
+
+.inner-menu {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  font-family: inherit;
+  line-height: 80px;
+  visibility: hidden;
+  box-sizing: border-box;
+  margin: 0px;
+  list-style: outside none;
+  margin-inline: 0px;
+  padding-inline: 0px;
+  margin-block: 0px;
+  padding: 0px;
+  list-style-type: none;
+  list-style-position: outside;
+}
+
+.actual-list-item {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  font-family: inherit;
+  visibility: hidden;
+  list-style: outside none;
+  list-style-type: none;
+  list-style-position: outside;
+  box-sizing: border-box;
+  line-height: 40px;
+}
+
+.submenu-anchor-tag {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit;
+  visibility: hidden;
+  list-style: outside none;
+  list-style-type: none;
+  list-style-position: outside;
+  line-height: 40px;
+  box-sizing: border-box;
+  background: 0px 0px;
+  outline: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 300;
+  text-decoration: none;
+  color: rgb(0, 106, 255);
+}
+
+.navbar-list-items {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  font-size: 93.75%;
+  list-style: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  min-height: 53px;
+  flex-wrap: wrap;
+  border: 0px;
+  display: inline-block;
+  line-height: 80px;
+}
+
+.top-level-navbar-list {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  font-size: 93.75%;
+  box-sizing: border-box;
+  list-style: none;
+  margin-inline: 0px;
+  padding-inline: 0px;
+  margin-block: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-family: inherit;
+  display: flex;
+  margin-left: 2px;
+}
+
+.navbar-div {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  box-sizing: border-box;
+  background: white;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 100%;
+  position: static;
+  width: 100%;
+  margin: auto;
+  border: none;
+  padding-right: 24px;
+  z-index: 1;
+  overflow: visible;
+  max-width: 100%;
+}
+
+.top-level-anchor {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  background: 0px 0px;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-weight: 300;
+  text-decoration: none;
+  padding: 12px 0px 13px 15px;
+  color: rgb(42, 42, 51);
+  flex: 1 0 50%;
+  line-height: 28px;
+  position: relative;
+  border: none;
+  margin: auto;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 16px;
+}
+
+header {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  display: block;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  position: relative;
+  z-index: 1000;
+  background-color: white;
+  width: 100%;
+  height: 80px;
+}
+
+.pfs-nav-wrapper {
+}
+
+@media screen and (max-width: 850px) {
+  .header-container {
+    display: none;
+  }
+  header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .search-box-container {
+    display: none;
+  }
+}
+
+.nav-list-right {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  font-size: 93.75%;
+  box-sizing: border-box;
+  list-style: none;
+  margin-inline: 0px;
+  padding-inline: 0px;
+  margin-block: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-family: inherit;
+  display: flex;
+  margin-left: auto;
+}
+
+.logo-container {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  padding: 0px 16px;
+  z-index: 2;
+  position: absolute;
+  height: 80px;
+  transform: translate(-50%, 0px);
+  border: none;
+  transition: left 0.15s ease-out 0s, height 0.15s ease-out 0s,
+    width 0.15s ease-out 0s, margin-top 0.15s ease-out 0s;
+  left: 50%;
+}
+
+/* .logo-link {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  box-sizing: border-box;
+  background: 0px 0px;
+  font-size: inherit;
+  outline: none;
+  box-shadow: none;
+  margin: 18px auto auto;
+  height: 30px;
+  cursor: pointer;
+  font-weight: 300;
+  text-decoration: none;
+  color: rgb(0, 106, 255);
+  margin-top: 24px;
+} */
+
+.logo-nav {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: inherit;
+  cursor: pointer;
+  font-weight: 300;
+  color: rgb(0, 106, 255);
+  box-sizing: border-box;
+  width: 160px;
+  height: 35px;
+  display: none;
+}
+
+.search-content {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-box-container {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.srp-search-box {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: 300px;
+  height: 44px;
+  position: relative;
+}
+
+.location-form {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  border: 1px solid rgb(209, 209, 213);
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+}
+
+.StyledCombobox {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+}
+
+.StyledAdornedInput {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.StyledComboboxInput {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  margin: 0px;
+  padding: 5px 40px 5px 16px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  caret-color: rgb(0, 106, 255);
+  outline: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  line-height: 24px;
+  height: auto;
+  border: none;
+  padding-left: 8px;
+  width: 100%;
+  box-shadow: none;
+  background-color: rgb(255, 255, 255);
+  flex-wrap: nowrap;
+  padding-right: 42px;
+  cursor: text;
+}
+
+.StyledTag {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  caret-color: rgb(0, 106, 255);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  -webkit-box-align: center;
+  align-items: center;
+  vertical-align: top;
+  border-radius: 4px;
+  padding: 2px 8px;
+  text-transform: none;
+  background-color: rgb(222, 227, 230);
+  color: rgb(42, 42, 51);
+  margin-top: 2px;
+  margin-bottom: 2px;
+  cursor: default;
+  position: relative;
+  display: block;
+  flex: 0 1 auto;
+  min-width: 60px;
+  padding-right: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.StyledTagCloseButton {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  caret-color: rgb(0, 106, 255);
+  -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font: inherit;
+  text-transform: none;
+  overflow: visible;
+  border: 0px;
+  background: none;
+  text-align: initial;
+  appearance: none;
+  padding: 8px;
+  margin: -8px;
+  line-height: 16px;
+  outline: none;
+  cursor: pointer;
+  color: rgb(42, 42, 51);
+  margin-left: -4px;
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 8px;
+  height: 100%;
+}
+.StyledFormControl {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  appearance: none;
+  width: 100%;
+  margin: 0px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  caret-color: rgb(0, 106, 255);
+  cursor: text;
+  outline: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  height: auto;
+  border: 0px;
+  padding: 4px 0px;
+  box-shadow: none;
+  flex: 1 0 25%;
+  opacity: 1;
+  background-color: rgb(255, 255, 255);
+  text-overflow: ellipsis;
+}
+
+.Icon-c11n {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  caret-color: rgb(0, 106, 255);
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font: inherit;
+  text-transform: none;
+  text-align: initial;
+  line-height: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  stroke: currentcolor;
+  fill: currentcolor;
+  height: 16px;
+  width: 16px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.StyledAdornment {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  margin: 0px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  caret-color: rgb(0, 106, 255);
+  cursor: text;
+  outline: none;
+  box-shadow: none;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(84, 84, 90);
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  user-select: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  position: absolute;
+  top: calc(50% - 21px);
+  right: 0px;
+  padding: 0px;
+  width: 42px;
+  height: 42px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  flex: 0 0 auto;
+}
+
+.exposed-filters {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  position: relative;
+  flex-grow: 1;
+  padding: 8px 8px 8px 10px;
+}
+
+.filter-buttons {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 auto;
+}
+
+.styled-outer-button-div {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  display: flex;
+  height: 37px;
+  margin-right: 5px;
+  outline: none;
+  overflow: visible;
+}
+
+.styled-search-filter-button {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  user-select: none;
+  margin: 0px;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  pointer-events: auto;
+  outline: none;
+  box-shadow: none;
+  width: auto;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  height: auto;
+  color: rgb(42, 42, 51);
+  background-color: rgb(242, 250, 255);
+  border: 1px solid rgb(0, 106, 255);
+  max-width: 150px;
+  min-width: 100px;
+  overflow: hidden;
+  padding: 0px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.styled-search-filter-button-icon {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  white-space: nowrap;
+  box-sizing: border-box;
+  margin-left: 8px;
+}
+
+.search-page-action-bar {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  transition: bottom 0.5s;
+  line-height: 50px;
+  z-index: 2;
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  bottom: 25px;
+  height: 50px;
+}
+
+.action-bar-left-content {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  color: rgb(42, 42, 51);
+  line-height: 50px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  height: 50px;
+  width: 105px;
+  margin: 0;
+  box-shadow: 0 0 1px 0 #000000;
+  border-radius: 3px;
+}
+
+.styled-button-save-search {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  user-select: none;
+  margin: 0px;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  pointer-events: auto;
+  box-shadow: none;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  line-height: 24px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: rgb(0, 106, 255);
+  border: 1px solid rgb(0, 106, 255);
+  border-radius: 4px;
+  color: white;
+  outline: none;
+  padding: 0px 0.67em;
+  width: auto;
+  font-weight: 700;
+  font-size: 14px;
+  height: 37px;
+}
+
+.map-and-listings-container {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  min-width: 320px;
+  overflow: hidden;
+  flex-direction: row-reverse;
+}
+
+/* TODO  Fix scollling */
+.search-page-list-container {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: scroll;
+  box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  width: 750px;
+  flex: 0 0 750px;
+}
+
+#listings {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+/* TODO Figure out flex basis */
+/* @media screen and (min-width: 1280px) {
+  body:not(.mobile-web) .search-page-list-container {
+    flex: 0 0 390px;
+    box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+} */
+
+@media screen and (min-width: 1007px) {
+  body:not(.mobile-web) .search-page-list-container {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (min-height: 400px) {
+  body.map-visible .search-page-list-container {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  body:not(.mobile-web) .double-column-only {
+    width: 750px;
+    flex: 0 0 750px;
+  }
+}
+
+@media screen and (min-width: 1007px) {
+  body:not(.mobile-web) .map-and-listings-container {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media screen and (min-height: 400px) {
+  body.map-visible .map-and-listings-container {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .map-image {
+    display: none;
+  }
+  .search-page-list-container {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+@media screen and (min-width: 1007px) {
+  body:not(.mobile-web) .search-content {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+@media screen and (min-height: 400px) {
+  body.map-visible .search-content {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.grid-search-results {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  background: none;
+}
+
+.result-list-container {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 1007px) {
+  .result-list-container {
+    width: 100%;
+  }
+}
+
+.search-page-list-header {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.search-title {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  color: inherit;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 8px;
+}
+
+.ListHeader__NarrowViewWrapping-search-subtitle {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.results-count {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  font-size: 14px;
+  box-sizing: border-box;
+  align-self: flex-start;
+  flex: 1;
+  font-weight: 600;
+}
+
+.SortOptionsPopover {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+}
+
+.StyledButton-c11n-8-84-DropdownButton-SortOptionsPopover {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  overflow: visible;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  user-select: none;
+  margin: 0px;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  pointer-events: auto;
+  box-shadow: none;
+  width: auto;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  line-height: 24px;
+  height: 23px;
+  margin-left: 3px;
+  outline: none;
+  padding: 0px 5px;
+  font-weight: 700;
+  font-size: 14px;
+  background: none;
+  border: none;
+  color: rgb(0, 106, 255);
+}
+
+.StyledButton-c11n-8-84-span {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  line-height: 24px;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgb(0, 106, 255);
+  box-sizing: border-box;
+  margin-left: 8px;
+}
+
+.Icon-c11n-8-84 {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  line-height: 24px;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgb(0, 106, 255);
+  box-sizing: border-box;
+  vertical-align: top;
+  stroke: currentcolor;
+  fill: currentcolor;
+  overflow: hidden;
+  display: block;
+  height: 16px;
+  width: 16px;
+}
+
+.List-c11n-8-84-3-photo-cards {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  margin: 0px;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(286px, 1fr));
+  margin-bottom: 8px;
+  padding: 0px 16px;
+}
+
+@media screen and (min-width: 640px) {
+  .List-c11n-8-84-3-photo-cards {
+    padding: 0px 16px;
+  }
+}
+
+.ListItem-c11n-8-84-3-StyledListCardWrapper {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  box-sizing: border-box;
+  margin: 0px;
+  min-height: 265px;
+  position: relative;
+  padding: 0px;
+}
+
+.search-pagination {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.StyledLayoutWidth-srp__sc-g2q2rk-0 {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+article {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  min-width: 286px;
+  max-width: 100%;
+  max-height: 297px;
+}
+
+.StyledCard-c11n-8-84 {
+  text-size-adjust: 100%;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  border: 0px solid rgb(209, 209, 213);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px 0px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-areas: "photo" "data" "flex";
+  grid-template-rows: 177px 1fr auto;
+  height: 100%;
+  padding: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.StyledPropertyCardDataWrapper {
+  text-size-adjust: 100%;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  place-content: start space-between;
+  display: grid;
+  grid-area: data / data / data / data;
+  column-gap: 8px;
+  grid-template-areas: "title title actions" "body1 body1 body1" "body2 body2 body2" "body3 mls-logo mls-logo" "additionalInfo additionalInfo additionalInfo";
+  grid-template-columns: 1fr min-content;
+  -webkit-box-pack: justify;
+  padding: 8px;
+}
+
+.StyledPropertyCardDataArea-anchor {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  background: 0px 0px;
+  cursor: pointer;
+  grid-area: body2 / body2 / body2 / body2;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  text-decoration: none;
+}
+
+address {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+  font-style: normal;
+}
+
+.StyledPropertyCardDataArea-jretvB {
+  text-size-adjust: 100%;
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  grid-area: additionalInfo / additionalInfo / additionalInfo / additionalInfo;
+  color: rgb(89, 107, 130);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.StyledPropertyCardDataArea-fDSTNn {
+  text-size-adjust: 100%;
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  grid-area: title / title / title / title;
+  color: rgb(42, 42, 51);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.PropertyCardWrapper {
+  text-size-adjust: 100%;
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.PropertyCardWrapper__StyledPriceLine {
+  text-size-adjust: 100%;
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.StyledPropertyCardDataArea-dbDWjx {
+  text-size-adjust: 100%;
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  grid-area: body1 / body1 / body1 / body1;
+  color: rgb(42, 42, 51);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.StyledPropertyCardHomeDetailsList {
+  text-size-adjust: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  box-sizing: border-box;
+  display: inline;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  text-size-adjust: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  list-style: none;
+  box-sizing: border-box;
+  display: inline;
+}
+
+.StyledPropertyCardPhotoWrapper {
+  text-size-adjust: 100%;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  display: grid;
+  grid-area: photo / photo / photo / photo;
+  grid-template-areas: "photo-top" "photo-center" "photo-bottom";
+  grid-template-rows: auto 1fr auto;
+  border-radius: 4px;
+}
+
+.StyledPropertyCardPhotoHeader {
+  text-size-adjust: 100%;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  grid-area: photo-top / photo-top / photo-top / photo-top;
+  height: 0px;
+  margin-top: 8px;
+  padding: 0px 8px;
+  z-index: 1;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 16px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.StyledPropertyCardBadgeArea {
+  text-size-adjust: 100%;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 4px;
+  -webkit-box-align: start;
+  align-items: start;
+}
+
+.StyledPropertyCardPhotoBody {
+  text-size-adjust: 100%;
+  list-style: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  grid-area: 1 / 1 / -1 / -1;
+}
+
+.property-card-link {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  background: 0px 0px;
+  cursor: pointer;
+  font-weight: 300;
+  color: rgb(42, 42, 51);
+  text-decoration: none;
+}
+
+.StyledPropertyCardPhoto {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-weight: 300;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+  border-radius: 4px 4px 0px 0px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  background-color: rgb(246, 246, 250);
+}
+
+picture {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-weight: 300;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+}
+
+.Image-c11n-8-84-listing {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-weight: 300;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+  object-fit: cover;
+  width: 100%;
+  height: 0px;
+  min-height: 100%;
+}
+
+.StyledPropertyCardSaveButton {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  overflow: visible;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  user-select: none;
+  margin: 0px;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  pointer-events: auto;
+  outline: none;
+  box-shadow: none;
+  width: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  height: auto;
+  color: rgb(42, 42, 51);
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: transparent;
+  border: 0px;
+  padding: 8px 8px 16px 16px;
+}
+
+.StyledButtonIcon-fZAMYU {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 2px 4px);
+  height: 32px;
+  margin-right: 0px;
+  width: 32px;
+}
+
+.HeartIcon__fill {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  d: path(
+    "M 17.3996 0.0000617511 C 15.5119 0.00908657 13.7078 0.779206 12.3955 2.13608 L 11.9995 2.54408 L 11.6035 2.13608 C 10.2912 0.779206 8.48708 0.00908657 6.59946 0.0000617511 C 5.15317 -0.00630912 3.7479 0.480456 2.61543 1.38007 C 1.08163 2.60976 0.137114 4.42893 0.0137749 6.39093 C -0.109564 8.35294 0.5997 10.2761 1.96743 11.6882 L 2.51943 12.2522 L 11.3995 21.3482 C 11.5575 21.5095 11.7738 21.6004 11.9995 21.6004 C 12.2253 21.6004 12.4415 21.5095 12.5995 21.3482 L 21.4796 12.2522 L 22.0316 11.6882 C 23.3993 10.2761 24.1086 8.35294 23.9852 6.39093 C 23.8619 4.42893 22.9174 2.60976 21.3836 1.38007 C 20.2511 0.480456 18.8458 -0.00630912 17.3996 0.0000617511 Z"
+  );
+  box-sizing: border-box;
+  fill: rgba(0, 0, 0, 0.5);
+}
+
+.HeartIcon__outline {
+  text-size-adjust: 100%;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  d: path(
+    "M 12.3955 2.13608 C 13.7078 0.779206 15.5119 0.00908657 17.3996 0.0000617511 C 18.8458 -0.00630912 20.2511 0.480456 21.3836 1.38007 C 22.9174 2.60976 23.8619 4.42893 23.9852 6.39093 C 24.1086 8.35294 23.3993 10.2761 22.0316 11.6882 L 21.4796 12.2522 L 12.5995 21.3482 C 12.4415 21.5095 12.2253 21.6004 11.9995 21.6004 C 11.7738 21.6004 11.5575 21.5095 11.3995 21.3482 L 2.51943 12.2522 L 1.96743 11.6882 C 0.5997 10.2761 -0.109564 8.35294 0.0137748 6.39093 C 0.137114 4.42893 1.08163 2.60976 2.61543 1.38007 C 3.7479 0.480456 5.15317 -0.00630912 6.59946 0.0000617511 C 8.48708 0.00908657 10.2912 0.779206 11.6035 2.13608 L 11.9995 2.54408 L 12.3955 2.13608 Z M 19.8956 3.25208 C 19.1854 2.69122 18.3045 2.39053 17.3996 2.40008 C 16.1576 2.41525 14.9717 2.91978 14.0995 3.80409 L 13.7155 4.21209 L 12.4315 5.5321 C 12.1927 5.77011 11.8063 5.77011 11.5675 5.5321 L 10.2835 4.21209 L 9.8995 3.80409 C 9.0273 2.91978 7.84145 2.41525 6.59947 2.40008 C 5.69165 2.39734 4.81045 2.70661 4.10345 3.27608 C 3.09352 4.06928 2.47292 5.25804 2.39944 6.54011 C 2.31914 7.81608 2.78104 9.06669 3.67145 9.98414 L 4.22345 10.5601 L 11.9995 18.5162 L 19.8476 10.5601 L 20.3996 9.98414 C 21.2638 9.05458 21.6991 7.80545 21.5996 6.54011 C 21.5329 5.2495 20.9116 4.05071 19.8956 3.25208 Z"
+  );
+  box-sizing: border-box;
+  fill: rgb(255, 255, 255);
+}
+
+#region-info-footer {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  background-color: rgb(249, 249, 251);
+  padding: 16px;
+  padding-bottom: 15px;
+}
+
+.footer {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.search-page-map-container {
+  display: block;
+  height: 100vh;
+  width: auto;
+}
+
+.map-image {
+  max-width: auto;
+  height: 100vh;
+  padding-top: 40px;
+}
+
+.nav-StyledPagination-Mfmhy {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  user-select: none;
+}
+
+.PaginationList-jYkptH {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  user-select: none;
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.PaginationJumpItem-jRUCrX {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  user-select: none;
+  list-style: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  display: block;
+  margin: 0px 8px;
+}
+
+.StyledButton-PaginationButton {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  list-style-type: none;
+  background: 0px 0px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid;
+  user-select: none;
+  margin: 0px;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  pointer-events: none;
+  outline: none;
+  box-shadow: none;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: default;
+  opacity: 0.4;
+  line-height: 24px;
+  background-color: rgb(255, 255, 255);
+  border-color: transparent;
+  color: rgb(42, 42, 51);
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0px;
+  text-decoration: none;
+}
+
+.Icon-IconChevronLeft {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  list-style-type: none;
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: default;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  stroke: currentcolor;
+  fill: currentcolor;
+  height: 16px;
+  width: 16px;
+  transform: rotate(90deg);
+  overflow: hidden;
+  margin: 0px;
+}
+
+.PaginationNumberItem-Ddyj {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  user-select: none;
+  list-style: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  margin: 0px 2px;
+  display: block;
+}
+
+.StyledButton-PaginationButton-wfluH {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  list-style-type: none;
+  background: 0px 0px;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid;
+  user-select: none;
+  margin: 0px;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  pointer-events: auto;
+  outline: none;
+  box-shadow: none;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: rgb(255, 255, 255);
+  border-color: transparent;
+  color: rgb(42, 42, 51);
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0px;
+  text-decoration: none;
+}
+
+.PaginationReadoutItem {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  user-select: none;
+  list-style: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  display: none;
+}
+
+.span-Text-hrfydd {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  list-style: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
+  text-align: center;
+  display: inline-block;
+}
+
+.PaginationJumpItem-jRUCrX {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  user-select: none;
+  list-style: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  display: block;
+  margin: 0px 8px;
+}
+
+.Icon-IconChevronRight {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  list-style-type: none;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(42, 42, 51);
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  stroke: currentcolor;
+  fill: currentcolor;
+  height: 16px;
+  width: 16px;
+  transform: rotate(270deg);
+  overflow: hidden;
+  margin: 0px;
+}
+
+.StyledLayoutWidth-srp__sc-g2q2rk-0 {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.search-list-save-search-parent {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 15px 0 26px 0;
+  font-size: 15px;
+}
+
+.StyledButton-StyledActionBarButton-save-search-button {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  overflow: visible;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  user-select: none;
+  appearance: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  pointer-events: auto;
+  outline: none;
+  box-shadow: none;
+  position: relative;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  -webkit-font-smoothing: auto;
+  height: 32px;
+  background: none;
+  color: #006aff;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  max-width: unset;
+  width: auto;
+  border: none;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.Spacer-kahpZI {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  background-color: rgb(249, 249, 251);
+  padding: 16px;
+  padding-bottom: 15px;
+}
+
+.brYbeb {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.jdLRNK {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  box-sizing: border-box;
+  background: 0px 0px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  outline: none;
+  box-shadow: none;
+  text-decoration: underline;
+  color: rgb(0, 106, 255);
+}
+
+.kjzGAJ {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times",
+    "Adjusted Times New Roman", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 8px 0px;
+  display: flex;
+  color: rgb(42, 42, 51);
+}
+
+.dQPoKl {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  font: inherit;
+  margin: 0px;
+  overflow: visible;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-box-align: center;
+  align-items: center;
+  outline: none;
+  box-shadow: none;
+  border: 0px;
+  background: none;
+  padding: 0px 0px 4px;
+  text-align: initial;
+  appearance: none;
+  color: rgb(13, 69, 153);
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(241, 241, 244);
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.lhWfFe {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: initial;
+  color: rgb(13, 69, 153);
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  height: 24px;
+  width: 24px;
+  overflow: hidden;
+}
+
+.DetailedIcon__secondary-color-fill {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: initial;
+  color: rgb(13, 69, 153);
+  cursor: pointer;
+
+  box-sizing: border-box;
+  fill: rgb(166, 229, 255);
+}
+
+.DetailedIcon__accent-color-fill {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: initial;
+  color: rgb(13, 69, 153);
+  cursor: pointer;
+  x: 22.365;
+  y: 25.37;
+  width: 5.05;
+  height: 10.1;
+  box-sizing: border-box;
+  fill: rgb(242, 166, 25);
+}
+
+.DetailedIcon__foreground-color-fill {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: initial;
+  color: rgb(13, 69, 153);
+  cursor: pointer;
+
+  box-sizing: border-box;
+  fill: rgb(13, 69, 153);
+}
+
+.toggle-text-button-icon {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: initial;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  stroke: currentcolor;
+  fill: currentcolor;
+  height: 1em;
+  width: 1em;
+  transform: rotate(180deg);
+  color: rgb(0, 106, 255);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.dxqBsR {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  text-align: initial;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0px 0px 0px 4px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  display: flex;
+  color: rgb(42, 42, 51);
+}
+
+.jcBOOY {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+.bWMbMO {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  font-size: 93.75%;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  box-sizing: border-box;
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+.cjgiZp {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
+  color: rgb(42, 42, 51);
+  line-height: 1.5;
+  list-style: none;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.jdLRNK {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  box-sizing: border-box;
+  background: 0px 0px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  outline: none;
+  box-shadow: none;
+  text-decoration: none;
+  color: rgb(0, 106, 255);
+}
+
+.dzqBsR {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font: inherit;
+  text-align: initial;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0px 0px 0px 4px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  display: flex;
+  color: rgb(42, 42, 51);
+}
