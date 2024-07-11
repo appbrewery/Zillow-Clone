@@ -1,4 +1,5 @@
 # Zillow-Clone
-Rentals in SF
+
+Day 53 - Intermediate+ Web Scraping Capstone Project - Data Entry Job Automation: Rentals in SF
 
 https://100daysofpython.dev/
